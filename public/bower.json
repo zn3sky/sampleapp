@@ -1,0 +1,21 @@
+{
+  "name": "nzy",
+  "authors": [
+    "zn3sky <zn3sky@gmail.com>"
+  ],
+  "description": "test",
+  "main": "",
+  "keywords": [
+    "test"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
