@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
+    return view('dashboard');
+});
+
+Route::get('/table', function () {
+    return view('table_viewer');
+});
+
+Route::get('/admin', function () {
     return view('admin');
 });

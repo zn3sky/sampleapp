@@ -3,6 +3,8 @@
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
+
+{{--
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
         <div class="pull-left image">
@@ -26,26 +28,41 @@
         </div>
         </form>
         <!-- /.search form -->
-
+--}}
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-        <span class="pull-right-container">
-        <i class="fa fa-angle-left pull-right"></i>
-        </span>
-        </a>
-        <ul class="treeview-menu">
-        <li><a href="#">Link in level 2</a></li>
-        <li><a href="#">Link in level 2</a></li>
-        </ul>
-        </li>
+{{--            
+            <li class="header">HEADER</li>
+--}}
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+            <li class="treeview">
+                <a href="#"><i class="fa fa-table"></i> <span>Tables</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">テーブル１</a></li>
+                    <li><a href="#">テーブル２</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#"><i class="fa fa-wrench"></i> <span>Admin</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">ユーザー</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
 </aside>
+
