@@ -56,10 +56,10 @@ desired effect
 <body class="hold-transition skin-black sidebar-mini fixed">
 <div class="wrapper">
 
-@include('layouts.header')
+  @include('layouts.header')
 
-@include('layouts.sidebar')
- 
+  @include('layouts.sidebar')
+  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -82,8 +82,7 @@ desired effect
   </div>
   <!-- /.content-wrapper -->
 
-@include('layouts.footer')
-
+  @include('layouts.footer')
 </div>
 <!-- ./wrapper -->
 

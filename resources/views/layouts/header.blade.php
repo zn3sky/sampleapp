@@ -16,8 +16,6 @@
 <span class="sr-only">Toggle navigation</span>
 </a>
 
-
-
 {{--
 <!-- Navbar Right Menu -->
 <div class="navbar-custom-menu">
@@ -168,8 +166,9 @@ Alexander Pierce - Web Developer
 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
 </li>
 </ul>
---}}
+
 
 </div>
+--}}
 </nav>
 </header>

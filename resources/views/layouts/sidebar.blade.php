@@ -56,8 +56,12 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">ユーザー</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li>
+                        <a href="{{ action('Admin\UsersController@index') }}">
+                            ユーザー管理
+                        </a>
+                    </li>
+                    <li><a href="#">テーブル権限管理</a></li>
                 </ul>
             </li>
         </ul>
