@@ -7,13 +7,14 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal">
-      <div class="box-body">
+    <form class="form-horizontal" method="post" action="{{ action('Admin\UsersController@create') }}">
+        {{ csrf_field() }}
+        <div class="box-body">
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
   
           <div class="col-sm-10">
-            <input type="text" class="form-control" value="aaa" readonly>
+            <input type="text" class="form-control" value="{{ $name }}" readonly>
           </div>
         </div>
 
@@ -21,7 +22,7 @@
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     
             <div class="col-sm-10">
-              <input type="text" class="form-control" value="zn3sky@gmail.com" readonly>
+              <input type="text" class="form-control" value="{{ $email }}" readonly>
             </div>
         </div>
   
