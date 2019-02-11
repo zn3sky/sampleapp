@@ -6,12 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserCreateRequest;
-use Illuminate\Support\Collection;
+use App\Http\Requests\UserUpdateRequest;
 
 class UsersController extends Controller
 {
-    const SESSION_KEY_NEW_USER_DATA = 'new_user_data';
-
     /**
      * Create a new controller instance.
      *
@@ -51,10 +49,7 @@ class UsersController extends Controller
      */
     public function showCreateConfirm(UserCreateRequest $request)
     {
-        $request->session()->put(self::SESSION_KEY_NEW_USER_DATA, [
-            'name'  => $request->name,
-            'email' => $request->email,
-        ]);
+        $request->flash();
 
         return view('admin.users.create_confirm', [
             'name'  => $request->name,
@@ -69,19 +64,31 @@ class UsersController extends Controller
      */
     public function create(Request $request) 
     {
-        if (!$request->session()->has(self::SESSION_KEY_NEW_USER_DATA)) {
+        if (!$request->old('name')) {
             return redirect()->action('Admin\UsersController@showCreateForm');
         }
 
-        $newUser = $request->session()->get(self::SESSION_KEY_NEW_USER_DATA);
+        // ----------
+        // もどる
+        // ----------
+        if ($request->has('btn_return')) {
+            $request->session()->flashInput([
+                'name'  => $request->old('name'),
+                'email' => $request->old('email'),
+            ]);
 
+            return redirect()
+                ->action('Admin\UsersController@showEditForm', [$user]);
+        }
+
+        // ----------
+        // 更新
+        // ----------
         $user = User::create([
-            'name'     => $newUser['name'],
-            'email'    => $newUser['email'],
+            'name'     => $request->old('name'),
+            'email'    => $request->old('email'),
             'password' => 'aaa',// TODO
         ]);
-
-        $request->session()->forget(self::SESSION_KEY_NEW_USER_DATA);
 
         return redirect()
             ->action('Admin\UsersController@index')
@@ -93,9 +100,11 @@ class UsersController extends Controller
      *
      * @return view
      */
-    public function showEditForm(User $id) 
+    public function showEditForm(User $user) 
     {
-        return view('admin.users.edit_form', []);
+        return view('admin.users.edit_form', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -103,9 +112,15 @@ class UsersController extends Controller
      *
      * @return view
      */
-    public function showEditConfirm(User $id) 
+    public function showEditConfirm(User $user, UserUpdateRequest $request) 
     {
-        return view('admin.users.edit_confirm', []);
+        $request->flash();
+
+        return view('admin.users.edit_confirm', [
+            'user'  => $user,
+            'name'  => $request->name,
+            'email' => $request->email,
+        ]);
     }
 
     /**
@@ -113,9 +128,32 @@ class UsersController extends Controller
      *
      * @return view
      */
-    public function edit(User $id) 
+    public function update(User $user, Request $request) 
     {
-        // TODO redirect index
+        if (!$request->old('name')) {
+            return redirect()->action('Admin\UsersController@showEditForm', [$user]);
+        }
+
+        // ----------
+        // もどる
+        // ----------
+        if ($request->has('btn_return')) {
+            $request->session()->flashInput([
+                'name'  => $request->old('name'),
+                'email' => $request->old('email'),
+            ]);
+
+            return redirect()
+                ->action('Admin\UsersController@showEditForm', [$user]);
+        }
+
+        // ----------
+        // 更新
+        // ----------
+        $user->name  = $request->old('name');
+        $user->email = $request->old('email');
+        $user->save();
+
         return redirect()
             ->action('Admin\UsersController@index')
             ->with('success_message', '編集しました');

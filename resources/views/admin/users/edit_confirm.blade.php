@@ -7,9 +7,15 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" method="post" action="{{ action('Admin\UsersController@create') }}">
-        {{ csrf_field() }}
-        <div class="box-body">
+    <form class="form-horizontal" method="post" action="{{ action('Admin\UsersController@update', [$user]) }}">
+      {{ csrf_field() }}
+      <div class="box-body">
+        <div class="form-group">
+            <label for="id" class="col-sm-2 control-label">＃</label>
+            <div class="col-sm-10">
+              {{ $user->id }}
+            </div>
+        </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
   
@@ -25,18 +31,12 @@
               <input type="text" class="form-control" value="{{ $email }}" readonly>
             </div>
         </div>
-  
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Options</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" value="あああ" readonly>
-          </div>  
-        </div>
       </div>
+    
       <!-- /.box-body -->
       <div class="box-footer">
-        <button type="submit" class="btn btn-default" name="btn_return" value="1">入力へ戻る</button>
-        <button type="submit" class="btn btn-default">登録</button>
+          <button type="submit" class="btn btn-default" name="btn_return" value="1">入力へ戻る</button>
+          <button type="submit" class="btn btn-default">確定</button>
       </div>
       <!-- /.box-footer -->
     </form>

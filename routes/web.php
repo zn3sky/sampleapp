@@ -25,6 +25,6 @@ Route::get('/admin/users/create', 'Admin\UsersController@showCreateForm');
 Route::post('/admin/users/create/confirm', 'Admin\UsersController@showCreateConfirm');
 Route::post('/admin/users/create', 'Admin\UsersController@create');
 
-Route::get('/admin/users/edit/{id}', 'Admin\UsersController@showEditForm');
-Route::post('/admin/users/edit/{id}/confirm', 'Admin\UsersController@showEditConfirm');
-Route::post('/admin/users/edit/{id}', 'Admin\UsersController@edit');
+Route::get('/admin/users/edit/{user}', 'Admin\UsersController@showEditForm');
+Route::post('/admin/users/edit/{user}/confirm', 'Admin\UsersController@showEditConfirm');
+Route::post('/admin/users/edit/{user}', 'Admin\UsersController@update');
