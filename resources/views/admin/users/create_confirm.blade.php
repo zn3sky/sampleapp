@@ -35,7 +35,9 @@
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
-        <button type="submit" class="btn btn-default" name="btn_return" value="1">入力へ戻る</button>
+        <a href="{{ action('Admin\UsersController@create') }}">
+            <div type="button" class="btn btn-default">入力へ戻る</div>
+        </a>
         <button type="submit" class="btn btn-default">登録</button>
       </div>
       <!-- /.box-footer -->

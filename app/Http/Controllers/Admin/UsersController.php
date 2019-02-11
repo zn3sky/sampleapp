@@ -68,22 +68,6 @@ class UsersController extends Controller
             return redirect()->action('Admin\UsersController@showCreateForm');
         }
 
-        // ----------
-        // もどる
-        // ----------
-        if ($request->has('btn_return')) {
-            $request->session()->flashInput([
-                'name'  => $request->old('name'),
-                'email' => $request->old('email'),
-            ]);
-
-            return redirect()
-                ->action('Admin\UsersController@showEditForm', [$user]);
-        }
-
-        // ----------
-        // 更新
-        // ----------
         $user = User::create([
             'name'     => $request->old('name'),
             'email'    => $request->old('email'),
@@ -134,22 +118,6 @@ class UsersController extends Controller
             return redirect()->action('Admin\UsersController@showEditForm', [$user]);
         }
 
-        // ----------
-        // もどる
-        // ----------
-        if ($request->has('btn_return')) {
-            $request->session()->flashInput([
-                'name'  => $request->old('name'),
-                'email' => $request->old('email'),
-            ]);
-
-            return redirect()
-                ->action('Admin\UsersController@showEditForm', [$user]);
-        }
-
-        // ----------
-        // 更新
-        // ----------
         $user->name  = $request->old('name');
         $user->email = $request->old('email');
         $user->save();
