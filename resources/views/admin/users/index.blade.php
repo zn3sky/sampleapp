@@ -33,6 +33,7 @@
           <th style="width: 10px">#</th>
           <th>name</th>
           <th>email</th>
+          <th>最終更新日時</th>
           <th>操作</th>
         </tr>
         @foreach ($users as $user)
@@ -43,6 +44,9 @@
             </td>
             <td>
                 {{ $user->email }}
+            </td>
+            <td>
+                {{ $user->updated_at }}
             </td>
             <td>
                 <a href="{{ action('Admin\UsersController@showEditForm', [$user->id]) }}">
