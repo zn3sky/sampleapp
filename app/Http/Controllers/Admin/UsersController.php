@@ -111,7 +111,7 @@ class UsersController extends Controller
     /**
      * ユーザー管理／ユーザー編集／登録
      *
-     * @return view
+     * @return redirect
      */
     public function update(User $user, Request $request) 
     {
@@ -126,5 +126,17 @@ class UsersController extends Controller
         return redirect()
             ->action('Admin\UsersController@index')
             ->with('success_message', '編集しました');
+    }
+
+    /**
+    * ユーザー管理／ユーザー編集／削除
+    *
+    * @return json
+    */
+    public function delete(User $user) 
+    {
+        $user->delete();
+
+        return [];
     }
 }
