@@ -33,6 +33,18 @@ class UsersController extends Controller
     }
 
     /**
+     * ユーザー管理／ユーザー一覧
+     *
+     * @return json
+     */
+    public function getUsers() 
+    {
+        return [
+            'users' => User::all()
+        ];
+    }
+
+    /**
      * ユーザー管理／ユーザー新規作成／フォーム
      *
      * @return view

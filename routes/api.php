@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/admin/users/delete/{user}', 'Admin\UsersController@delete');
+Route::get('/admin/users', 'Admin\UsersController@getUsers');
+Route::post('/admin/users/{user}/delete', 'Admin\UsersController@delete');

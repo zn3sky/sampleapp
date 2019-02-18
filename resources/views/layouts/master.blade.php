@@ -7,7 +7,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>DataViewer | Starter</title>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script type="text/javascript">
+    window.Laravel = window.Laravel || {};
+    window.Laravel.csrfToken = "{{csrf_token()}}";
+</script>
+<title>DataViewer | {{ $pageHeader ?? ''}}</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="{{ asset("/bower_components/bootstrap/dist/css/bootstrap.min.css") }}">
@@ -33,26 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 @yield('stylesheet')
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition skin-black sidebar-mini fixed">
 <div class="wrapper">
 
@@ -64,18 +50,21 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+
       <h1>
-        {{ $pageHeader ?? 'Page Header' }}
-        <small>{{ $pageHeaderDescription ?? 'Optional description' }}</small>
+        {{ $pageHeader ?? '' }}
+        <small>{{ $pageHeaderDescription ?? '' }}</small>
       </h1>
+
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> top</a></li>
         <li class="active">Here</li>
       </ol>
+
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section id="js-main-content" class="content container-fluid">
         @yield('content')
     </section>
     <!-- /.content -->
