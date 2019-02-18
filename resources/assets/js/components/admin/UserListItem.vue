@@ -24,7 +24,7 @@
         ],
         methods: {
             editItem: function () {
-                console.log('edit:' + this.user.id);
+                location.href = '/admin/users/' + this.user.id + '/edit';
             },
             deleteItem: function () {
                 console.log('delete:' + this.user.id);

@@ -23,9 +23,8 @@
   <div class="box-header">
     <h3 class="box-title"></h3>
     <div class="box-tools">
-        <a href="{{ action('Admin\UsersController@showCreateForm') }}">
-          <div type="button" class="btn btn-default">新規作成</div>
-        </a>
+        <user-create-button>
+        </user-create-button>
     </div>
   </div>
 

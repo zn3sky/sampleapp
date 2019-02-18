@@ -25,6 +25,5 @@
         props: [
             'users',
         ],
-
     }
 </script>

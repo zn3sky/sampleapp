@@ -17,6 +17,7 @@ window.Vue = require('vue');
 Vue.component('user-list', require('../../components/admin/UserList.vue'));
 Vue.component('user-list-item', require('../../components/admin/UserListItem.vue'));
 Vue.component('user-list-filter', require('../../components/admin/UserListFilter.vue'));
+Vue.component('user-create-button', require('../../components/admin/UserCreateButton.vue'));
 
 const app = new Vue({
     el: '#js-main-content',
